@@ -1,0 +1,39 @@
+
+Workflow:
+
+ TopologyGeneratorGUI  -------->  TopologyGenerator -----> TopologyWriter -----> file
+                       parameters       (TG)        direct     (TW)       Writer
+                                                    access
+
+  file ------> TopologyReader ------> TopologyVis
+       Reader       (TR)      direct
+                              access
+
+
+
+
+
+---------------------------------
+Framework:
+
+ TopologyGeneratorGUI  -------->  TG -----> TW ------->------> TR -------> TopologyVis
+              ^        parameters    direct  ^  Writer Reader   ^  direct      ^
+              |                      access  |        ^         |  access      |
+              |                              |        |         |              |
+              |                              |        |         |              |
+              ---------------  GUI Console --+--------+---------+--------------/
+
+
+
+            
+ TopologyGeneratorGUI  -------->  TopologyGenerator --------> TopologyVis
+              ^        parameters                    direct       ^
+              |                                      access       |
+              |                                                   |
+              |                                                   |
+              -----------------  GUI Console ---------------------/
+ 
+---------------------------------
+classes
+- see TGBase to begin with
+- Relaxer and TopologyVisRelaxer for automatic node placement
